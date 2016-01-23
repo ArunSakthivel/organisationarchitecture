@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>Organization charts</title>
+<link rel="stylesheet" type="text/css" href="Ocharts.css"/>
+
+<script type="text/javascript" src="angular.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+<div class="content" ng-app="organization" ng-controller="divison">
+  <h1 class="ChartsTitle" ng-show="ChartPage">Responsive Organization Chart</h1>
+  <figure class="org-chart cf" ng-show="ChartPage">
+    <ul class="administration">
+      <li>					
+        <ul class="director">
+          <li ng-click="divClick(organizationData.level1[0].empDetail,$event)">
+            <a href="#"><span>{{organizationData.level1[0].title}}</span></a>
+			<ul class="subdirector">
+              <li ng-click="divClick(organizationData.level1[0].Subdepartment[0].empDetail,$event)"><a href="#"><span>Assistante Director</span></a></li>
+            </ul>
+            <ul class="departments cf">								
+              <li ng-click="divClick(organizationData.level1[0].Subdepartment[1].empDetail,$event)"><a href="#"><span>Administration</span></a></li>
+              <li class="department {{sector.class}} " ng-repeat="sector in organizationData.level1[0].Subdepartment[1].subdepartment"  ng-click="divClick(sector.empDetail,$event)">
+			  
+                <a href="#"><span>{{sector.title}}</span></a>
+                <ul class="sections">
+                  <li class="section tooltip" ng-repeat="subsector in sector.Subdepartment" ng-click="divClick(subsector.empDetail,$event)">
+				  <span class="msg">
+					<strong>{{subsector.hovertext}}</strong><br />
+	     		  </span>
+				  <a href="#"><span>{{subsector.title}} </span></a></li>
+                </ul>
+              </li>
+              
+        </ul>	
+      </li>
+    </ul>
+	</li>
+	</ul>
+  </figure>
+  <div class="detailPage" ng-show="detailPage">
+  <div class="backbtn"><a class="button back" href="javascript:void(0)" ng-click="goback()">Back</a></div>
+		<h1 class="ChartsTitle">{{empDetails.Name}}</h1>
+		<div class="empinfo">
+			<div class="empimg" ng-class="empDetails.gender =='Male' ? 'male' : 'female'">
+			</div>
+			<div class="empdet">
+				<div class="empcontent">
+					<div><div class="emplabel"><label> Year of Experience </label></div> <span> :{{empDetails.TotalEXP}}</span></div>
+					<div><div class="emplabel"><label> Date of Birth </label> </div><span>: {{empDetails.DOB}}</span></div>
+					<div><div class="emplabel"><label> Gender</label> </div><span>: {{empDetails.gender}}</span></div>
+				</div>
+			</div>
+		</div>
+  </div>
+</div>
+</body>
+</html>
