@@ -1,0 +1,7 @@
+{
+  "name": "organisationarchitecture",
+  "version": "0.1.0",
+  "engines": {
+    "node": "5.5.0"
+  }
+}
