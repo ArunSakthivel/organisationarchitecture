@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>org charts</title>
+  <%= stylesheet_link_tag    'bootstrap.min.css'%>
+  <%= javascript_include_tag 'charts/angular.min','charts/app' %>
+  <%= csrf_meta_tags %>
+</head>
+<body ng-app="employDirectory">
+
+<%= yield %>
+
+</body>
+</html>
