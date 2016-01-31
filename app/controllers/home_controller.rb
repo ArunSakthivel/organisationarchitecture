@@ -8,6 +8,13 @@ class HomeController < ApplicationController
   def chart
   end
 
+  def employee
+  end
+
+  def employee_detail
+    @employee_details = EmployeeDetail.first
+  end
+
   private
 
   def page_layout
@@ -16,6 +23,8 @@ class HomeController < ApplicationController
   		'angular'
   	when 'chart'
   		'chart'
+    when 'employee'
+      'employee'
   	else
   		'application'
   	end

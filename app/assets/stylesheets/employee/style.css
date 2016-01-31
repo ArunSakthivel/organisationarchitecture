@@ -1,0 +1,112 @@
+
+body{padding-top:50px;}
+.nopadding{padding:0}
+.parentTree{width:30%; margin:0 auto;}
+.navbar-inverse{background-color: #006556;}
+.navbar-inverse .navbar-brand,.navbar-inverse .navbar-nav>li>a{color:#000;}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover,.navbar-inverse .navbar-nav>li>a:hover
+{background:rgba(255,255,255,0.2)}
+.tree insert-ul ul child-tree li {
+    margin: 0px 0;	
+	list-style-type: none;
+    position: relative;
+	padding: 20px 5px 0px 5px;
+}
+
+.tree insert-ul ul child-tree li::before{
+    content: '';
+	position: absolute; 
+    top: 0;
+	width: 1px; 
+    height: 100%;
+	right: auto; 
+    left: -20px;
+	border-left: 1.5px dashed orange;
+    bottom: 50px;
+}
+.tree insert-ul ul child-tree li::after{
+    content: '';
+	position: absolute; 
+    top: 30px; 
+	width: 25px; 
+    height: 20px;
+	right: auto; 
+    left: -20px;
+	border-top: 1.5px dashed orange;
+}
+.tree insert-ul ul child-tree li .chartContent{
+    display: inline-block;
+	border: 1px solid #006556;
+	padding: 5px;
+	text-decoration: none;
+	color: #666;
+	font-family: arial, verdana, tahoma;
+	font-size: 11px;
+    border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	width:170px;
+	cursor:pointer;
+	
+}
+
+/*Remove connectors before root*/
+.tree > insert-ul > ul > child-tree >  li::before, .tree > insert-ul  > ul > child-tree > li::after{
+	border: 0;
+}
+/*Remove connectors after last child*/
+.tree insert-ul ul child-tree li:last-child::before{ 
+      height: 30px;
+}
+
+/*Time for some hover effects*/
+/*We will apply the hover effect the the lineage of the element also*/
+.tree  insert-ul ul child-tree li a:hover, .tree  insert-ul ul child-tree li a:hover+insert-ul ul child-tree li a {
+	background: #eee; color: #000; border: 1px solid blueviolet;
+}
+/*Connector styles on hover*/
+.tree insert-ul ul child-tree li a:hover+insert-ul ul child-tree li::before, 
+.tree insert-ul ul child-tree li a:hover+insert-ul ul::before, 
+.tree insert-ul ul child-tree li a:hover+insert-ul ul ul::before,
+.tree insert-ul ul child-tree li a:hover+insert-ul ul child-tree li::after, 
+.tree insert-ul ul child-tree li a:hover+insert-ul ul::after, 
+.tree insert-ul ul child-tree li a:hover+insert-ul ul ul::after{
+	border-color:  blueviolet;
+}
+.imgeCharts{
+	width:100%;
+}
+.chartsText{
+	line-height:18px;padding: 0px 0px 0px 5px; font-weight:bold; color:#333;    
+}
+.expandIcon{
+	width:15px;
+	height:15px;
+	padding-top:7px;
+}
+.expandimgPlus{
+	content:url('expand.png');
+	
+}
+.expandimgMinus{
+	content:url('expminus.png');
+	
+}
+.employList{
+	margin-top:100px;
+	margin-left:50px;
+	width:80%;
+}
+.indemp{
+	float: left;
+	width: 21%;
+	margin: 10px 40px 10px 3px;
+	
+}
+#details{
+	margin: 11% 12% 14% 23%
+}
+a.emplist{
+	border: 1px #eee solid;
+    display: block;
+}
